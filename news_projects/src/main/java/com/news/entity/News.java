@@ -4,10 +4,15 @@ public class News {
     private int id;
     private String title;
     private double rate;
+    private boolean visible = true;
 
-    public News(String title, double rate) {
-        this.title = title;
-        this.rate = rate;
+
+    public boolean isVisable() {
+        return visible;
+    }
+
+    public void setVisable(boolean visable) {
+        this.visible = visable;
     }
 
     public int getId() {
