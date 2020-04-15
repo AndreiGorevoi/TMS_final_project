@@ -33,4 +33,13 @@ public class News {
     public void setRate(double rate) {
         this.rate = rate;
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", rate=" + rate +
+                '}';
+    }
 }
