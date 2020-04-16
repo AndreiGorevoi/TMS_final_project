@@ -5,6 +5,7 @@ public class News {
     private String title;
     private double rate;
     private boolean visible = true;
+    private String content;
 
 
     public boolean isVisable() {
@@ -39,12 +40,21 @@ public class News {
         this.rate = rate;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "News{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", rate=" + rate +
+                ", content='" + content + '\'' +
                 '}';
     }
 }
