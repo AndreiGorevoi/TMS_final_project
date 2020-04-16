@@ -5,6 +5,6 @@ import com.news.entity.News;
 import java.util.List;
 
 public interface NewsRepository {
-
     List<News> getNews();
+    void addNews(News news);
 }
