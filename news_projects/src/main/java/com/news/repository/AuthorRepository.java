@@ -4,8 +4,9 @@ import com.news.entity.Author;
 
 import java.util.List;
 
-public interface AuthorRepositoty_Old {
+public interface AuthorRepository {
 
     List<Author> getAuthors();
+    void updateAuthor(Author author, String newAuthor);
 
 }

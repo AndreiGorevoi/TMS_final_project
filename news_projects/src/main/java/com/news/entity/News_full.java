@@ -4,9 +4,18 @@ public class News_full {
     private int id;
     private String title;
     private String name_tag;
-    private String name_auhtor;
+    private String name_author;
     private double rate;
     private String content;
+    private boolean visible = true;
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
 
     public int getId() {
         return id;
@@ -32,12 +41,12 @@ public class News_full {
         this.name_tag = name_tag;
     }
 
-    public String getName_auhtor() {
-        return name_auhtor;
+    public String getName_author() {
+        return name_author;
     }
 
-    public void setName_auhtor(String name_auhtor) {
-        this.name_auhtor = name_auhtor;
+    public void setName_author(String name_auhtor) {
+        this.name_author = name_auhtor;
     }
 
     public double getRate() {
@@ -54,5 +63,17 @@ public class News_full {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "News_full{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", name_tag='" + name_tag + '\'' +
+                ", name_auhtor='" + name_author + '\'' +
+                ", rate=" + rate +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

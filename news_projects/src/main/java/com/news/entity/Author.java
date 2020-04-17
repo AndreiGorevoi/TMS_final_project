@@ -3,8 +3,7 @@ package com.news.entity;
 public class Author {
 
     private int id;
-    private String name;
-    private String surname;
+    private String nameAuthor;
 
     public int getId() {
         return id;
@@ -14,28 +13,18 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameAuthor() {
+        return nameAuthor;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setNameAuthor(String name) {
+        this.nameAuthor = name;
     }
 
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                "name='" + nameAuthor + '\'' +
                 '}';
     }
 }

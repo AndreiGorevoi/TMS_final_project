@@ -1,9 +1,8 @@
 package com.news.controller;
 
-import com.news.entity.News;
+import com.news.entity.News_full;
+import com.news.repository.NewsRepository;
 import com.news.repository.NewsRepositoryImpl;
-import com.news.service.NewsService;
-import com.news.service.NewsServiceImlp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +16,18 @@ import java.util.List;
 @WebServlet(urlPatterns = "/getNews")
 public class NewsController extends HttpServlet {
 
+    NewsRepository newsRepository = new NewsRepositoryImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+//        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+        List<News_full> newsFull = newsRepository.getNews();
+        resp.setContentType("text/html");
+        PrintWriter pw = resp.getWriter();
+        for (News_full nf: newsFull) {
+            pw.write(String.valueOf(nf));
+            pw.flush();
+        }
     }
 
     @Override

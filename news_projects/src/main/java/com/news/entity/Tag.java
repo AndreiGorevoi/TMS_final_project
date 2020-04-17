@@ -3,7 +3,7 @@ package com.news.entity;
 public class Tag {
 
     private int id;
-    private String name;
+    private String nameTag;
 
     public int getId() {
         return id;
@@ -13,19 +13,18 @@ public class Tag {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameTag() {
+        return nameTag;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameTag(String name) {
+        this.nameTag = name;
     }
 
     @Override
     public String toString() {
         return "Tag{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + nameTag + '\'' +
                 '}';
     }
 }
