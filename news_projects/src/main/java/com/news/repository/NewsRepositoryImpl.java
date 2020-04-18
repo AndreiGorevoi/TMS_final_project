@@ -1,7 +1,7 @@
 package com.news.repository;
 
 import com.news.dbUtils.CreateConnection;
-import com.news.entity.News_full;
+import com.news.entity.NewsFull;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ public class NewsRepositoryImpl implements NewsRepository{
 
 
     @Override
-    public List<News_full> getNews() {
-        List<News_full> newsList = new ArrayList<>();
+    public List<NewsFull> getNews() {
+        List<NewsFull> newsList = new ArrayList<>();
         try(Connection connection = DriverManager.getConnection(CreateConnection.url, CreateConnection.user, CreateConnection.password)) {
             String sql = "Select * from news";
             Statement statement = connection.createStatement();
@@ -22,7 +22,7 @@ public class NewsRepositoryImpl implements NewsRepository{
                 int id_author = 0;
                 int id_tag = 0;
 
-                News_full news = new News_full();
+                NewsFull news = new NewsFull();
                 news.setId(rs.getInt(1));
                 id_news = news.getId();
                 news.setTitle(rs.getString(2));
@@ -70,7 +70,7 @@ public class NewsRepositoryImpl implements NewsRepository{
     }
 
     @Override
-    public void addNews(News_full news) {
+    public void addNews(NewsFull news) {
         try(Connection connection = DriverManager.getConnection(CreateConnection.url,CreateConnection.user,
                 CreateConnection.password)) {
             String sql = "Insert into news(title,rate,content) value(?,?,?)";
@@ -131,7 +131,7 @@ public class NewsRepositoryImpl implements NewsRepository{
     }
 
     @Override
-    public void deleteNews(News_full news) {
+    public void deleteNews(NewsFull news) {
         try (Connection connection = DriverManager.getConnection(CreateConnection.url, CreateConnection.user, CreateConnection.password)){
             String sql = "Update news set visible = 0 where id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -145,7 +145,7 @@ public class NewsRepositoryImpl implements NewsRepository{
     }
 
     @Override
-    public void updateNews(News_full news, String newTitle, double newRate, String newContent) {
+    public void updateNews(NewsFull news, String newTitle, double newRate, String newContent) {
         try (Connection connection = DriverManager.getConnection(CreateConnection.url, CreateConnection.user, CreateConnection.password)){
             String sql = "Update news set title = ?, rate = ?, content = ? where id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);

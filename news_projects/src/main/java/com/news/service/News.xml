@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allNews>
+    <news>
+        <title>Covid is over</title>
+        <rate>10</rate>
+        <author>Filipchik Egor</author>
+        <content>Covid-19 is over. Now you can go at the work</content>
+        <tag>Health</tag>
+    </news>
+
+    <news>
+        <title>Animals so smart</title>
+        <rate>7.8</rate>
+        <author>Mark Strong</author>
+        <content>Iq dog more than iq cat</content>
+        <tag>Animals</tag>
+    </news>
+
+    <news>
+        <title>Lebron James the best</title>
+        <rate>10</rate>
+        <author>Andrei Gorevoi</author>
+        <content>Lebron James get a price for more valuable player of season</content>
+        <tag>Sport</tag>
+    </news>
+
+
+</allNews>

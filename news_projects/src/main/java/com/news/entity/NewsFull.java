@@ -1,6 +1,6 @@
 package com.news.entity;
 
-public class News_full {
+public class NewsFull {
     private int id;
     private String title;
     private String name_tag;
