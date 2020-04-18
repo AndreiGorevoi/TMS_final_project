@@ -1,5 +1,6 @@
-package com.news.service;
+package com.news.service.parsingXml;
 
+import com.news.service.parsingXml.ParserFromXML;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

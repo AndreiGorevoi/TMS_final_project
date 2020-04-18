@@ -8,6 +8,12 @@
 </head>
 <body>
 <p>
+    <%
+        List<String> listNews = (List<String>) request.getAttribute("news");
+        for (String s:listNews) {
+            out.println("<p>"+s+"</p>");
+        }
+    %>
 </p>
 </body>
 </html>

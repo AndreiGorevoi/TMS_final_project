@@ -5,5 +5,8 @@ import com.news.entity.NewsFull;
 import java.util.List;
 
 public interface NewsService {
-    List<NewsFull> getNews();
+    List<String> getNews();
+    void addNews(NewsFull news);
+    void deleteNews(NewsFull news);
+    void updateNews(NewsFull news, String newTitle, double newRate, String newContent);
 }

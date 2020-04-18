@@ -1,4 +1,4 @@
-package com.news.service;
+package com.news.service.parsingXml;
 
 import com.news.entity.NewsFull;
 import com.news.repository.NewsRepository;

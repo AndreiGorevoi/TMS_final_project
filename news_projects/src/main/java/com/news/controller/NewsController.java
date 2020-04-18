@@ -2,6 +2,10 @@ package com.news.controller;
 import com.news.entity.NewsFull;
 import com.news.repository.NewsRepository;
 import com.news.repository.NewsRepositoryImpl;
+import com.news.service.NewsService;
+import com.news.service.NewsServiceImpl;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +17,13 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/getNews")
 public class NewsController extends HttpServlet {
-
+    final static NewsService newsService = new NewsServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        NewsRepository newsRepository = new NewsRepositoryImpl();
-        List<NewsFull> news_fullList = newsRepository.getNews();
-        news_fullList.forEach(System.out::println);
+        List<String> listNews = newsService.getNews();
+        req.setAttribute("news",listNews);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("getNews.jsp");
+        requestDispatcher.forward(req,resp);
     }
 
     @Override
