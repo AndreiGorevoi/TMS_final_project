@@ -20,7 +20,12 @@ public class NewsController extends HttpServlet {
     final static NewsService newsService = new NewsServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<String> listNews = newsService.getNews();
+        List<String> listNews = null;
+        try {
+            listNews = newsService.getNews();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         req.setAttribute("news",listNews);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("getNews.jsp");
         requestDispatcher.forward(req,resp);
