@@ -16,23 +16,26 @@ import java.util.List;
 
 
 @WebServlet(urlPatterns = "/getNews")
-public class NewsController extends HttpServlet {
+public class GetNewsController extends HttpServlet {
     final static NewsService newsService = new NewsServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<String> listNews = null;
         try {
-            listNews = newsService.getNews();
+            List<NewsFull> newsList = newsService.getNews();
+            req.setAttribute("list", newsList);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("getNews.jsp");
+            requestDispatcher.forward(req,resp);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        req.setAttribute("news",listNews);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("getNews.jsp");
-        requestDispatcher.forward(req,resp);
+
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

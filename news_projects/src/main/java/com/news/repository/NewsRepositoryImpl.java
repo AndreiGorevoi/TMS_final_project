@@ -13,7 +13,6 @@ public class NewsRepositoryImpl implements NewsRepository{
     @Override
     public List<NewsFull> getNews() throws ClassNotFoundException {
         List<NewsFull> newsList = new ArrayList<>();
-        Class.forName("com.mysql.cj.jdbc.Driver");
         try(Connection connection = DriverManager.getConnection(CreateConnection.url, CreateConnection.user, CreateConnection.password)) {
             String sql = "Select * from news";
             Statement statement = connection.createStatement();

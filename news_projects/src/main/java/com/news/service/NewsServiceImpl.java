@@ -10,17 +10,19 @@ import java.util.List;
 public class NewsServiceImpl implements NewsService {
     private NewsRepository newsRepository = new NewsRepositoryImpl();
     @Override
-    public List<String> getNews() throws ClassNotFoundException {
-        List<String> printNews = new ArrayList<>();
-        List<NewsFull> newsFulls = newsRepository.getNews();
-        for (NewsFull news:newsFulls) {
-            printNews.add(news.toString());
-        }
-        return printNews;
+    public List<NewsFull> getNews() throws ClassNotFoundException {
+
+        return newsRepository.getNews();
     }
 
     @Override
-    public void addNews(NewsFull news) {
+    public void addNews(String title, String author, String content, String tag, double rate) {
+        NewsFull news = new NewsFull();
+        news.setTitle(title);
+        news.setName_author(author);
+        news.setContent(content);
+        news.setName_tag(tag);
+        news.setRate(rate);
         newsRepository.addNews(news);
     }
 
