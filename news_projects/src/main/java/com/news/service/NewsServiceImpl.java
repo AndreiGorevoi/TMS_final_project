@@ -16,7 +16,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void addNews(String title, String author, String content, String tag, double rate) {
+    public void addNews(String title, String author, String content, String tag, double rate) throws ClassNotFoundException {
         NewsFull news = new NewsFull();
         news.setTitle(title);
         news.setName_author(author);
@@ -27,12 +27,12 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void deleteNews(NewsFull news) {
-        newsRepository.deleteNews(news);
+    public void deleteNews(String title) {
+        newsRepository.deleteNews(title);
     }
 
     @Override
-    public void updateNews(NewsFull news, String newTitle, double newRate, String newContent) {
-        newsRepository.updateNews(news, newTitle,newRate,newContent);
+    public void updateNews(String oldTitle, String newTitle, double newRate, String newContent) throws ClassNotFoundException {
+        newsRepository.updateNews(oldTitle, newTitle,newRate,newContent);
     }
 }

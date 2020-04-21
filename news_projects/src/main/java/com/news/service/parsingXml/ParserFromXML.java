@@ -70,7 +70,11 @@ public class ParserFromXML extends DefaultHandler {
                 news_full.setName_author(sAuthor);
                 news_full.setContent(sContent);
                 news_full.setName_tag(sTag);
-                newsRepository.addNews(news_full);
+                try {
+                    newsRepository.addNews(news_full);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
 

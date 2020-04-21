@@ -1,6 +1,4 @@
-<%@ page import="java.util.List" %>
-<%@ page isELIgnored = "false" %>
-<%@ page import="com.news.entity.NewsFull" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,23 +16,7 @@
 
 <form method="post">
     <label>Title:
-        <input type="text" name="title"><br />
-    </label>
-
-    <label>Author:
-        <input type="text" name="author"><br />
-    </label>
-
-    <label>Content:
-        <input type="text" name="content"><br />
-    </label>
-
-    <label>Tag:
-        <input type="text" name="tag"><br />
-    </label>
-
-    <label>Rate:
-        <input type="text" name="rate"><br />
+        <input type="text" name="title"><br/>
     </label>
     <button type="submit">Submit</button>
 </form>

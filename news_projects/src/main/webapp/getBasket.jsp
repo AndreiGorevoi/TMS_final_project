@@ -15,31 +15,18 @@
     </style>
 </head>
 <body>
+<hr>
 
-<form method="post">
-    <label>Title:
-        <input type="text" name="title"><br />
-    </label>
-
-    <label>Author:
-        <input type="text" name="author"><br />
-    </label>
-
-    <label>Content:
-        <input type="text" name="content"><br />
-    </label>
-
-    <label>Tag:
-        <input type="text" name="tag"><br />
-    </label>
-
-    <label>Rate:
-        <input type="text" name="rate"><br />
-    </label>
-    <button type="submit">Submit</button>
-</form>
-
-
+<%
+    List<NewsFull> listList = (List<NewsFull>) request.getAttribute("list");
+    for (NewsFull nf:listList) {
+        out.print("<img src=\"https://pbs.twimg.com/profile_images/783090452845039616/pOiHeWhQ_bigger.jpg\">");
+        out.println("<h2>"+nf.getTitle()+"</h2>");
+        out.println("<p style=\"color: blue\"><strong> Rate: "+nf.getRate()+"<br>\tAuthor: "+nf.getName_author()+"/\tTag: "+nf.getName_tag()+"</strong></p>");
+        out.println("<p>"+nf.getContent()+"</p>");
+        out.print("<hr>");
+    }
+%>
 <div>
     <button onclick="location.href='http://localhost:8080/news_projects_war_exploded/'">Main</button>
 </div>

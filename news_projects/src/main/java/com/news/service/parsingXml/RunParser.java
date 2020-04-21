@@ -9,7 +9,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
 
 public class RunParser {
-    public void run(File filename){
+    public static void run(File filename){
         try {
             ParserFromXML pfx = new ParserFromXML();
             SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();

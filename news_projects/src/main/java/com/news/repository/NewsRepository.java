@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NewsRepository {
     List<NewsFull> getNews() throws ClassNotFoundException;
-    void addNews(NewsFull news);
-    void deleteNews(NewsFull news);
-    void updateNews(NewsFull news, String newTitle, double newRate, String newContent);
+    void addNews(NewsFull news) throws ClassNotFoundException;
+    void deleteNews(String title);
+    void updateNews(String oldTitle, String newTitle, double newRate, String newContent) throws ClassNotFoundException;
 }

@@ -65,6 +65,13 @@ public class NewsFull {
         this.content = content;
     }
 
+    public boolean equals(NewsFull newNews){
+        if(this.title.equalsIgnoreCase(newNews.getTitle())){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "News_full{" +

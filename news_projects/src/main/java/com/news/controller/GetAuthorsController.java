@@ -1,10 +1,11 @@
 package com.news.controller;
+
+import com.news.entity.Author;
 import com.news.entity.NewsFull;
-import com.news.repository.NewsRepository;
-import com.news.repository.NewsRepositoryImpl;
+import com.news.service.AuthorService;
+import com.news.service.AuthoreServiceImpl;
 import com.news.service.NewsService;
 import com.news.service.NewsServiceImpl;
-import com.news.service.parsingXml.RunParser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,24 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-
-@WebServlet(urlPatterns = "/getNews")
-public class GetNewsController extends HttpServlet {
-    final static NewsService newsService = new NewsServiceImpl();
+@WebServlet(urlPatterns = "/getAuthors")
+public class GetAuthorsController extends HttpServlet {
+    final static AuthorService authoreService = new AuthoreServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            List<NewsFull> newsList = newsService.getNews();
-            req.setAttribute("list", newsList);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("getNews.jsp");
-            requestDispatcher.forward(req,resp);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        List<Author> authorList = authoreService.getAuthors();
+        req.setAttribute("list", authorList);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("getAuthors.jsp");
+        requestDispatcher.forward(req,resp);
 
     }
 
@@ -41,3 +35,4 @@ public class GetNewsController extends HttpServlet {
         }
     }
 }
+

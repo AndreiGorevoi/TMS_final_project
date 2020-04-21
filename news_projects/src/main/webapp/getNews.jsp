@@ -20,7 +20,7 @@
     <%
         List<NewsFull> listList = (List<NewsFull>) request.getAttribute("list");
         for (NewsFull nf:listList) {
-            out.print("<img src=\"http://psl.by/wp-content/uploads/2016/02/207392879.jpg\">");
+            out.print("<img src=\"https://sun9-39.userapi.com/c854524/v854524329/cadbd/EALEJHkNcSQ.jpg\">");
             out.println("<h2>"+nf.getTitle()+"</h2>");
             out.println("<p style=\"color: blue\"><strong> Rate: "+nf.getRate()+"<br>\tAuthor: "+nf.getName_author()+"/\tTag: "+nf.getName_tag()+"</strong></p>");
             out.println("<p>"+nf.getContent()+"</p>");
@@ -28,7 +28,7 @@
         }
     %>
 <div>
-<button onclick="location.href='http://localhost:8989/news_projects_war_exploded/'">Main</button>
+<button onclick="location.href='http://localhost:8080/news_projects_war_exploded/'">Main</button>
 </div>
 </body>
 </html>

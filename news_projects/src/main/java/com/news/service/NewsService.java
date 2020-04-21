@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NewsService {
     List<NewsFull> getNews() throws ClassNotFoundException;
-    void addNews(String title, String author, String content, String tag, double rate);
-    void deleteNews(NewsFull news);
-    void updateNews(NewsFull news, String newTitle, double newRate, String newContent);
+    void addNews(String title, String author, String content, String tag, double rate) throws ClassNotFoundException;
+    void deleteNews(String title);
+    void updateNews(String oldTtile, String newTitle, double newRate, String newContent) throws ClassNotFoundException;
 }
