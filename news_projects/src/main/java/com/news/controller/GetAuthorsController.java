@@ -6,6 +6,9 @@ import com.news.service.AuthorService;
 import com.news.service.AuthoreServiceImpl;
 import com.news.service.NewsService;
 import com.news.service.NewsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +20,8 @@ import java.io.IOException;
 import java.util.List;
 @WebServlet(urlPatterns = "/getAuthors")
 public class GetAuthorsController extends HttpServlet {
-    final static AuthorService authoreService = new AuthoreServiceImpl();
+    ApplicationContext context = new AnnotationConfigApplicationContext("com");
+    AuthorService authoreService=context.getBean(AuthoreServiceImpl.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Author> authorList = authoreService.getAuthors();

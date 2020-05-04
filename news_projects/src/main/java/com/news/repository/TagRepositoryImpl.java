@@ -3,11 +3,13 @@ package com.news.repository;
 import com.news.dbUtils.CreateConnection;
 import com.news.entity.Author;
 import com.news.entity.Tag;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TagRepositoryImpl implements TagRepository{
     @Override
     public List<Tag> getTag() {

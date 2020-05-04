@@ -5,6 +5,9 @@ import com.news.service.BasketService;
 import com.news.service.BasketServiceImpl;
 import com.news.service.NewsService;
 import com.news.service.NewsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +20,8 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/getBasket")
 public class GetBasketController extends HttpServlet {
-    final static BasketService basketService = new BasketServiceImpl();
+    ApplicationContext context = new AnnotationConfigApplicationContext("com");
+    BasketService basketService=context.getBean(BasketServiceImpl.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<NewsFull> newsList = basketService.getBasket();

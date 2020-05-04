@@ -5,6 +5,9 @@ import com.news.repository.NewsRepositoryImpl;
 import com.news.service.NewsService;
 import com.news.service.NewsServiceImpl;
 import com.news.service.parsingXml.RunParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +22,8 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/getNews")
 public class GetNewsController extends HttpServlet {
-    final static NewsService newsService = new NewsServiceImpl();
+    ApplicationContext context = new AnnotationConfigApplicationContext("com");
+    NewsService newsService=context.getBean(NewsServiceImpl.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {

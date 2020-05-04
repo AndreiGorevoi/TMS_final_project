@@ -2,11 +2,13 @@ package com.news.repository;
 
 import com.news.dbUtils.CreateConnection;
 import com.news.entity.NewsFull;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class NewsRepositoryImpl implements NewsRepository{
 
 

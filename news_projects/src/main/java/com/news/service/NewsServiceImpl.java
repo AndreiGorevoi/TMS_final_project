@@ -3,12 +3,16 @@ package com.news.service;
 import com.news.entity.NewsFull;
 import com.news.repository.NewsRepository;
 import com.news.repository.NewsRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class NewsServiceImpl implements NewsService {
-    private NewsRepository newsRepository = new NewsRepositoryImpl();
+    @Autowired
+    private NewsRepository newsRepository;
+
     @Override
     public List<NewsFull> getNews() throws ClassNotFoundException {
 

@@ -6,6 +6,9 @@ import com.news.service.AuthorService;
 import com.news.service.AuthoreServiceImpl;
 import com.news.service.TagService;
 import com.news.service.TagServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.jws.WebService;
 import javax.servlet.RequestDispatcher;
@@ -19,7 +22,8 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/getTags")
 public class GetTagsController extends HttpServlet {
-    final static TagService tagService = new TagServiceImpl();
+    ApplicationContext context = new AnnotationConfigApplicationContext("com");
+    TagService tagService=context.getBean(TagServiceImpl.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Tag> tagList = tagService.getTag();
